@@ -1,32 +1,18 @@
 package views;
 
 import java.awt.EventQueue;
-import java.awt.LayoutManager;
-import java.awt.LayoutManager2;
 
 import javax.swing.JFrame;
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
-
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.internal.win32.KEYBDINPUT;
-import org.eclipse.swt.widgets.Layout;
-import org.eclipse.swt.widgets.MessageBox;
-
-import java.awt.Canvas;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.naming.ldap.Control;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class FormMain {
 
 	private JFrame frmVargas;
-	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -83,16 +69,14 @@ public class FormMain {
 		frmVargas.getContentPane().add(btnIzq);
 		
 		JButton btnDer = new JButton(">>>");
+		btnDer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnNumero.setBounds(btnNumero.getX()+5, btnNumero.getY(), btnNumero.getWidth(), btnNumero.getHeight());
+			}
+		});
 		btnDer.setBounds(173, 213, 89, 23);
 		frmVargas.getContentPane().add(btnDer);
 		
 	}
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
+
 }
