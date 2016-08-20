@@ -16,7 +16,7 @@ import javax.swing.Action;
 
 public class FormMain {
 
-	private JFrame frame;
+	private JFrame frmVargas;
 	private final Action action = new SwingAction();
 
 	/**
@@ -27,7 +27,8 @@ public class FormMain {
 			public void run() {
 				try {
 					FormMain window = new FormMain();
-					window.frame.setVisible(true);
+					window.frmVargas.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,10 +47,11 @@ public class FormMain {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 655, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmVargas = new JFrame();
+		frmVargas.setTitle("2048 1.0 Vargas Lucero");
+		frmVargas.setBounds(100, 100, 655, 480);
+		frmVargas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmVargas.getContentPane().setLayout(null);
 		
 	}
 	private class SwingAction extends AbstractAction {
