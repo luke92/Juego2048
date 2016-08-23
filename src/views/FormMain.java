@@ -61,7 +61,7 @@ public class FormMain {
 			}
 		});
 		frmVargas.setTitle("2048 1.0 Vargas Lucero");
-		frmVargas.setBounds(100, 100, 655, 480);
+		frmVargas.setBounds(100, 100, 506, 445);
 		frmVargas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVargas.getContentPane().setLayout(null);
 		
