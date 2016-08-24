@@ -241,7 +241,9 @@ public class FormularioPrincipal {
 		JButton btnNuevoJuego = new JButton("Juego Nuevo");
 		btnNuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Poner en 0 todos los labels y puntaje a 0 tambien.
+				JOptionPane.showMessageDialog(null, "Nuevo Juego");
+				lbl00.setText("");
+				lbl01.setText("");
 			}
 		});
 		btnNuevoJuego.setBounds(143, 370, 162, 23);
@@ -264,13 +266,16 @@ public class FormularioPrincipal {
 			}
 
 			private void moverArriba() {
-				
+				lbl00.setText("2");
 			}
 
 			private void moverAbajo() {
+				lbl01.setText("4");
 			}
 
-			private void moverDer() {
+			private void moverDer() 
+			{
+				
 			}
 
 			private void moverIzq() {
