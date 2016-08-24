@@ -1,4 +1,4 @@
-package views;
+package vistas;
 
 import java.awt.EventQueue;
 
@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-public class FormMain {
+public class FormularioPrincipal {
 
 	private JFrame frmVargas;
 
@@ -33,7 +33,7 @@ public class FormMain {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FormMain window = new FormMain();				
+					FormularioPrincipal window = new FormularioPrincipal();				
 					window.frmVargas.setVisible(true);
 					
 				} catch (Exception e) {
@@ -46,14 +46,14 @@ public class FormMain {
 	/**
 	 * Create the application.
 	 */
-	public FormMain() {
-		initialize();
+	public FormularioPrincipal() {
+		inicializar();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void inicializar() {
 		frmVargas = new JFrame();
 		frmVargas.setTitle("2048 1.0 Vargas Lucero");
 		frmVargas.setBounds(100, 100, 506, 445);
@@ -238,14 +238,14 @@ public class FormMain {
 		lbl33.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl33.add(lbl33);
 		
-		JButton btnNewGame = new JButton("Juego Nuevo");
-		btnNewGame.addActionListener(new ActionListener() {
+		JButton btnNuevoJuego = new JButton("Juego Nuevo");
+		btnNuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Poner en 0 todos los labels y puntaje a 0 tambien.
 			}
 		});
-		btnNewGame.setBounds(143, 370, 162, 23);
-		btnNewGame.addKeyListener(new KeyAdapter() {
+		btnNuevoJuego.setBounds(143, 370, 162, 23);
+		btnNuevoJuego.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 		          switch (e.getKeyCode()) {
 		            case KeyEvent.VK_LEFT:
@@ -277,7 +277,7 @@ public class FormMain {
 			}
 		});
 		
-		frmVargas.getContentPane().add(btnNewGame);
+		frmVargas.getContentPane().add(btnNuevoJuego);
 		
 	}
 	
