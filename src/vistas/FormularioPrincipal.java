@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Random;
+
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -266,24 +268,49 @@ public class FormularioPrincipal {
 			}
 
 			private void moverArriba() {
-				lbl00.setText("2");
+				agregarNumero();
 				//tablero.moverArriba();
 			}
-
+			
 			private void moverAbajo() {
-				lbl01.setText("4");
+				agregarNumero();
 				//tablero.moverAbajo();
 			}
 
-			private void moverDer() 
-			{
+			private void moverDer(){
+				agregarNumero();
 				//tablero.moverDerecha();
 			}
 
-			private void moverIzq() 
-			{
+			private void moverIzq(){
+				agregarNumero();
 				//tablero.moverIzquierda();
 			}
+
+			private void agregarNumero() {
+				JLabel cel= randomCelda();
+				if(!celdaOcupada(cel))
+					cel.setText( String.valueOf( generarNumero() ) );
+			}
+			
+			private boolean celdaOcupada(JLabel cel){
+				if(cel.getText().equals("2") || cel.getText().equals("4"))
+					return true;
+				return false;
+			}
+			
+			public int generarNumero(){
+				Random rnd = new Random();
+				int[] num= {2,4};
+				return num[ rnd.nextInt(2) ];
+			}
+			
+			public JLabel randomCelda(){
+				Random rnd = new Random();
+				JLabel[] celdas= {lbl00,lbl01,lbl02,lbl03,lbl10,lbl11,lbl12,lbl13,lbl20,lbl21,lbl22,lbl23,lbl30,lbl31,lbl32,lbl33};
+				return celdas [ rnd.nextInt(16) ];
+			}
+			
 		});
 		
 		frm2048.getContentPane().add(btnNuevoJuego);
