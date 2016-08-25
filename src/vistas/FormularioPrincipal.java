@@ -24,7 +24,7 @@ import java.awt.Font;
 
 public class FormularioPrincipal {
 
-	private JFrame frmVargas;
+	private JFrame frm2048;
 
 	/**
 	 * Launch the application.
@@ -34,7 +34,7 @@ public class FormularioPrincipal {
 			public void run() {
 				try {
 					FormularioPrincipal window = new FormularioPrincipal();				
-					window.frmVargas.setVisible(true);
+					window.frm2048.setVisible(true);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,11 +54,11 @@ public class FormularioPrincipal {
 	 * Initialize the contents of the frame.
 	 */
 	private void inicializar() {
-		frmVargas = new JFrame();
-		frmVargas.setTitle("2048 1.0 Vargas Lucero");
-		frmVargas.setBounds(100, 100, 506, 445);
-		frmVargas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmVargas.getContentPane().setLayout(null);
+		frm2048 = new JFrame();
+		frm2048.setTitle("2048 1.0 Vargas Lucero");
+		frm2048.setBounds(100, 100, 506, 445);
+		frm2048.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frm2048.getContentPane().setLayout(null);
 		
 		JPanel pnl00 = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) pnl00.getLayout();
@@ -66,7 +66,7 @@ public class FormularioPrincipal {
 		pnl00.setBackground(SystemColor.activeCaption);
 		pnl00.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl00.setBounds(66, 46, 75, 75);
-		frmVargas.getContentPane().add(pnl00);
+		frm2048.getContentPane().add(pnl00);
 		
 		JLabel lbl00 = new JLabel("");
 		lbl00.setHorizontalAlignment(SwingConstants.CENTER);
@@ -77,7 +77,7 @@ public class FormularioPrincipal {
 		pnl01.setBackground(SystemColor.activeCaption);
 		pnl01.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl01.setBounds(143, 46, 75, 75);
-		frmVargas.getContentPane().add(pnl01);
+		frm2048.getContentPane().add(pnl01);
 		
 		JLabel lbl01 = new JLabel("");
 		lbl01.setHorizontalAlignment(SwingConstants.CENTER);
@@ -88,7 +88,7 @@ public class FormularioPrincipal {
 		pnl02.setBackground(SystemColor.activeCaption);
 		pnl02.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl02.setBounds(220, 46, 75, 75);
-		frmVargas.getContentPane().add(pnl02);
+		frm2048.getContentPane().add(pnl02);
 		
 		JLabel lbl02 = new JLabel("");
 		lbl02.setHorizontalAlignment(SwingConstants.CENTER);
@@ -99,7 +99,7 @@ public class FormularioPrincipal {
 		pnl03.setBackground(SystemColor.activeCaption);
 		pnl03.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl03.setBounds(298, 46, 75, 75);
-		frmVargas.getContentPane().add(pnl03);
+		frm2048.getContentPane().add(pnl03);
 		
 		JLabel lbl03 = new JLabel("");
 		lbl03.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,7 +110,7 @@ public class FormularioPrincipal {
 		pnl10.setBackground(SystemColor.activeCaption);
 		pnl10.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl10.setBounds(66, 127, 75, 75);
-		frmVargas.getContentPane().add(pnl10);
+		frm2048.getContentPane().add(pnl10);
 		
 		JLabel lbl10 = new JLabel("");
 		lbl10.setHorizontalAlignment(SwingConstants.CENTER);
@@ -121,7 +121,7 @@ public class FormularioPrincipal {
 		pnl11.setBackground(SystemColor.activeCaption);
 		pnl11.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl11.setBounds(143, 127, 75, 75);
-		frmVargas.getContentPane().add(pnl11);
+		frm2048.getContentPane().add(pnl11);
 		
 		JLabel lbl11 = new JLabel("");
 		lbl11.setHorizontalAlignment(SwingConstants.CENTER);
@@ -132,7 +132,7 @@ public class FormularioPrincipal {
 		pnl12.setBackground(SystemColor.activeCaption);
 		pnl12.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl12.setBounds(220, 127, 75, 75);
-		frmVargas.getContentPane().add(pnl12);
+		frm2048.getContentPane().add(pnl12);
 		
 		JLabel lbl12 = new JLabel("");
 		lbl12.setHorizontalAlignment(SwingConstants.CENTER);
@@ -143,7 +143,7 @@ public class FormularioPrincipal {
 		pnl13.setBackground(SystemColor.activeCaption);
 		pnl13.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl13.setBounds(298, 127, 75, 75);
-		frmVargas.getContentPane().add(pnl13);
+		frm2048.getContentPane().add(pnl13);
 		
 		JLabel lbl13 = new JLabel("");
 		lbl13.setHorizontalAlignment(SwingConstants.CENTER);
@@ -154,7 +154,7 @@ public class FormularioPrincipal {
 		pnl20.setBackground(SystemColor.activeCaption);
 		pnl20.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl20.setBounds(66, 206, 75, 75);
-		frmVargas.getContentPane().add(pnl20);
+		frm2048.getContentPane().add(pnl20);
 		
 		JLabel lbl20 = new JLabel("");
 		lbl20.setHorizontalAlignment(SwingConstants.CENTER);
@@ -165,7 +165,7 @@ public class FormularioPrincipal {
 		pnl21.setBackground(SystemColor.activeCaption);
 		pnl21.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl21.setBounds(143, 206, 75, 75);
-		frmVargas.getContentPane().add(pnl21);
+		frm2048.getContentPane().add(pnl21);
 		
 		JLabel lbl21 = new JLabel("");
 		lbl21.setHorizontalAlignment(SwingConstants.CENTER);
@@ -176,7 +176,7 @@ public class FormularioPrincipal {
 		pnl22.setBackground(SystemColor.activeCaption);
 		pnl22.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl22.setBounds(220, 206, 75, 75);
-		frmVargas.getContentPane().add(pnl22);
+		frm2048.getContentPane().add(pnl22);
 		
 		JLabel lbl22 = new JLabel("");
 		lbl22.setHorizontalAlignment(SwingConstants.CENTER);
@@ -187,7 +187,7 @@ public class FormularioPrincipal {
 		pnl23.setBackground(SystemColor.activeCaption);
 		pnl23.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl23.setBounds(298, 206, 75, 75);
-		frmVargas.getContentPane().add(pnl23);
+		frm2048.getContentPane().add(pnl23);
 		
 		JLabel lbl23 = new JLabel("");
 		lbl23.setHorizontalAlignment(SwingConstants.CENTER);
@@ -198,7 +198,7 @@ public class FormularioPrincipal {
 		pnl30.setBackground(SystemColor.activeCaption);
 		pnl30.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl30.setBounds(66, 284, 75, 75);
-		frmVargas.getContentPane().add(pnl30);
+		frm2048.getContentPane().add(pnl30);
 		
 		JLabel lbl30 = new JLabel("");
 		lbl30.setHorizontalAlignment(SwingConstants.CENTER);
@@ -209,7 +209,7 @@ public class FormularioPrincipal {
 		pnl31.setBackground(SystemColor.activeCaption);
 		pnl31.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl31.setBounds(143, 284, 75, 75);
-		frmVargas.getContentPane().add(pnl31);
+		frm2048.getContentPane().add(pnl31);
 		
 		JLabel lbl31 = new JLabel("");
 		lbl31.setHorizontalAlignment(SwingConstants.CENTER);
@@ -220,7 +220,7 @@ public class FormularioPrincipal {
 		pnl32.setBackground(SystemColor.activeCaption);
 		pnl32.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl32.setBounds(220, 284, 75, 75);
-		frmVargas.getContentPane().add(pnl32);
+		frm2048.getContentPane().add(pnl32);
 		
 		JLabel lbl32 = new JLabel("");
 		lbl32.setHorizontalAlignment(SwingConstants.CENTER);
@@ -231,7 +231,7 @@ public class FormularioPrincipal {
 		pnl33.setBackground(SystemColor.activeCaption);
 		pnl33.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl33.setBounds(298, 284, 75, 75);
-		frmVargas.getContentPane().add(pnl33);
+		frm2048.getContentPane().add(pnl33);
 		
 		JLabel lbl33 = new JLabel("");
 		lbl33.setHorizontalAlignment(SwingConstants.CENTER);
@@ -267,22 +267,26 @@ public class FormularioPrincipal {
 
 			private void moverArriba() {
 				lbl00.setText("2");
+				//tablero.moverArriba();
 			}
 
 			private void moverAbajo() {
 				lbl01.setText("4");
+				//tablero.moverAbajo();
 			}
 
 			private void moverDer() 
 			{
-				
+				//tablero.moverDerecha();
 			}
 
-			private void moverIzq() {
+			private void moverIzq() 
+			{
+				//tablero.moverIzquierda();
 			}
 		});
 		
-		frmVargas.getContentPane().add(btnNuevoJuego);
+		frm2048.getContentPane().add(btnNuevoJuego);
 		
 	}
 	

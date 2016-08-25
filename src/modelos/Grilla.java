@@ -1,4 +1,4 @@
-package controladores;
+package modelos;
 
 public class Grilla 
 {
@@ -13,6 +13,7 @@ public class Grilla
 	
 	private void invariante(int filas, int columnas)
 	{
+		if(filas != columnas) throw new RuntimeException("La cantidad de filas debe ser igual a la de columnas");
 		if(filas < 3 || columnas < 3)
 			throw new RuntimeException("La cantidad de filas o columnas no puede ser menor a 3");
 	}

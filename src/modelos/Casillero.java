@@ -1,4 +1,4 @@
-package controladores;
+package modelos;
 
 public class Casillero 
 {
