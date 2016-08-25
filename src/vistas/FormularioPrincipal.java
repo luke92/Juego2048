@@ -58,19 +58,19 @@ public class FormularioPrincipal {
 	private void inicializar() {
 		frm2048 = new JFrame();
 		frm2048.setTitle("2048 1.0 Vargas Lucero");
-		frm2048.setBounds(100, 100, 506, 445);
+		frm2048.setBounds(100, 100, 455, 445);
 		frm2048.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frm2048.getContentPane().setLayout(null);
 		
 		JPanel pnl00 = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) pnl00.getLayout();
-		flowLayout.setAlignOnBaseline(true);
 		pnl00.setBackground(SystemColor.activeCaption);
 		pnl00.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl00.setBounds(66, 46, 75, 75);
 		frm2048.getContentPane().add(pnl00);
+		pnl00.setLayout(null);
 		
 		JLabel lbl00 = new JLabel("");
+		lbl00.setBounds(0, 0, 75, 75);
 		lbl00.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl00.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl00.add(lbl00);
@@ -80,8 +80,10 @@ public class FormularioPrincipal {
 		pnl01.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl01.setBounds(143, 46, 75, 75);
 		frm2048.getContentPane().add(pnl01);
+		pnl01.setLayout(null);
 		
 		JLabel lbl01 = new JLabel("");
+		lbl01.setBounds(0, 0, 75, 75);
 		lbl01.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl01.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl01.add(lbl01);
@@ -91,8 +93,10 @@ public class FormularioPrincipal {
 		pnl02.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl02.setBounds(220, 46, 75, 75);
 		frm2048.getContentPane().add(pnl02);
+		pnl02.setLayout(null);
 		
 		JLabel lbl02 = new JLabel("");
+		lbl02.setBounds(0, 0, 75, 75);
 		lbl02.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl02.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl02.add(lbl02);
@@ -102,8 +106,10 @@ public class FormularioPrincipal {
 		pnl03.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl03.setBounds(298, 46, 75, 75);
 		frm2048.getContentPane().add(pnl03);
+		pnl03.setLayout(null);
 		
 		JLabel lbl03 = new JLabel("");
+		lbl03.setBounds(0, 0, 75, 75);
 		lbl03.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl03.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl03.add(lbl03);
@@ -113,8 +119,10 @@ public class FormularioPrincipal {
 		pnl10.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl10.setBounds(66, 127, 75, 75);
 		frm2048.getContentPane().add(pnl10);
+		pnl10.setLayout(null);
 		
 		JLabel lbl10 = new JLabel("");
+		lbl10.setBounds(0, 0, 75, 75);
 		lbl10.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl10.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl10.add(lbl10);
@@ -124,8 +132,10 @@ public class FormularioPrincipal {
 		pnl11.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl11.setBounds(143, 127, 75, 75);
 		frm2048.getContentPane().add(pnl11);
+		pnl11.setLayout(null);
 		
 		JLabel lbl11 = new JLabel("");
+		lbl11.setBounds(0, 0, 75, 75);
 		lbl11.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl11.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl11.add(lbl11);
@@ -135,8 +145,10 @@ public class FormularioPrincipal {
 		pnl12.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl12.setBounds(220, 127, 75, 75);
 		frm2048.getContentPane().add(pnl12);
+		pnl12.setLayout(null);
 		
 		JLabel lbl12 = new JLabel("");
+		lbl12.setBounds(0, 0, 75, 75);
 		lbl12.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl12.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl12.add(lbl12);
@@ -146,8 +158,10 @@ public class FormularioPrincipal {
 		pnl13.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl13.setBounds(298, 127, 75, 75);
 		frm2048.getContentPane().add(pnl13);
+		pnl13.setLayout(null);
 		
 		JLabel lbl13 = new JLabel("");
+		lbl13.setBounds(0, 0, 75, 75);
 		lbl13.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl13.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl13.add(lbl13);
@@ -157,8 +171,10 @@ public class FormularioPrincipal {
 		pnl20.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl20.setBounds(66, 206, 75, 75);
 		frm2048.getContentPane().add(pnl20);
+		pnl20.setLayout(null);
 		
 		JLabel lbl20 = new JLabel("");
+		lbl20.setBounds(0, 0, 75, 75);
 		lbl20.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl20.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl20.add(lbl20);
@@ -168,8 +184,10 @@ public class FormularioPrincipal {
 		pnl21.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl21.setBounds(143, 206, 75, 75);
 		frm2048.getContentPane().add(pnl21);
+		pnl21.setLayout(null);
 		
 		JLabel lbl21 = new JLabel("");
+		lbl21.setBounds(0, 0, 75, 75);
 		lbl21.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl21.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl21.add(lbl21);
@@ -179,8 +197,10 @@ public class FormularioPrincipal {
 		pnl22.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl22.setBounds(220, 206, 75, 75);
 		frm2048.getContentPane().add(pnl22);
+		pnl22.setLayout(null);
 		
 		JLabel lbl22 = new JLabel("");
+		lbl22.setBounds(0, 0, 75, 75);
 		lbl22.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl22.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl22.add(lbl22);
@@ -190,8 +210,10 @@ public class FormularioPrincipal {
 		pnl23.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl23.setBounds(298, 206, 75, 75);
 		frm2048.getContentPane().add(pnl23);
+		pnl23.setLayout(null);
 		
 		JLabel lbl23 = new JLabel("");
+		lbl23.setBounds(0, 0, 75, 75);
 		lbl23.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl23.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl23.add(lbl23);
@@ -201,8 +223,10 @@ public class FormularioPrincipal {
 		pnl30.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl30.setBounds(66, 284, 75, 75);
 		frm2048.getContentPane().add(pnl30);
+		pnl30.setLayout(null);
 		
 		JLabel lbl30 = new JLabel("");
+		lbl30.setBounds(0, 0, 75, 75);
 		lbl30.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl30.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl30.add(lbl30);
@@ -212,8 +236,10 @@ public class FormularioPrincipal {
 		pnl31.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl31.setBounds(143, 284, 75, 75);
 		frm2048.getContentPane().add(pnl31);
+		pnl31.setLayout(null);
 		
 		JLabel lbl31 = new JLabel("");
+		lbl31.setBounds(0, 0, 75, 75);
 		lbl31.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl31.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl31.add(lbl31);
@@ -223,8 +249,10 @@ public class FormularioPrincipal {
 		pnl32.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl32.setBounds(220, 284, 75, 75);
 		frm2048.getContentPane().add(pnl32);
+		pnl32.setLayout(null);
 		
 		JLabel lbl32 = new JLabel("");
+		lbl32.setBounds(0, 0, 75, 75);
 		lbl32.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl32.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl32.add(lbl32);
@@ -234,8 +262,10 @@ public class FormularioPrincipal {
 		pnl33.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		pnl33.setBounds(298, 284, 75, 75);
 		frm2048.getContentPane().add(pnl33);
+		pnl33.setLayout(null);
 		
 		JLabel lbl33 = new JLabel("");
+		lbl33.setBounds(0, 0, 75, 75);
 		lbl33.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl33.setFont(new Font("Calibri", Font.PLAIN, 29));
 		pnl33.add(lbl33);
@@ -244,8 +274,6 @@ public class FormularioPrincipal {
 		btnNuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Nuevo Juego");
-				lbl00.setText("");
-				lbl01.setText("");
 			}
 		});
 		btnNuevoJuego.setBounds(143, 370, 162, 23);
@@ -316,6 +344,4 @@ public class FormularioPrincipal {
 		frm2048.getContentPane().add(btnNuevoJuego);
 		
 	}
-	
-	
 }
