@@ -24,4 +24,16 @@ public class Grilla
 			for(int j = 0; j < casilleros[i].length; i++)
 				casilleros[i][j] = new Casillero(0);
 	}
+	
+	public boolean casilleroOcupado(int fila, int columna)
+	{
+		if(casilleros[fila][columna].valor() != 0)
+			return true;
+		return false;
+	}
+	
+	public void agregarNumero(int fila, int columna, int numero)
+	{
+		casilleros[fila][columna] = new Casillero(numero);
+	}
 }
