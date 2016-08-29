@@ -1,4 +1,4 @@
-package modelos;
+package controladores;
 
 public class Casillero 
 {
@@ -29,5 +29,11 @@ public class Casillero
 	public Integer valor()
 	{
 		return this.numero;
+	}
+	
+	public String toString()
+	{
+		if(numero == 0) return " - ";
+		else return " " + numero + " ";
 	}
 }

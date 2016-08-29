@@ -1,19 +1,14 @@
 package controladores;
 
-import modelos.Grilla;
+import java.util.Random;
 
 public class Tablero 
 {
 	private Grilla grilla;
 	
-	public Tablero(Dificultad d)
+	public Tablero(int filas, int columnas)
 	{
-		if(d == Dificultad.FACIL)
-			grilla = new Grilla(3, 3);
-		if(d == Dificultad.NORMAL)
-			grilla = new Grilla(4 , 4);
-		if(d == Dificultad.DIFICIL)
-			grilla = new Grilla(5, 5);
+		grilla = new Grilla(filas, columnas);
 	}
 	
 	public void moverIzquierda()
@@ -33,13 +28,46 @@ public class Tablero
 	
 	public void moverAbajo()
 	{
-		
+	
 	}
 	
-	public enum Dificultad
+	public String mostrar()
 	{
-		FACIL,
-		NORMAL,
-		DIFICIL
+		return grilla.toString();
 	}
+	
+	public void agregarNumero()
+	{
+		if(grilla.cantidadCasilleros() == grilla.casillerosOcupados())
+			throw new RuntimeException("No se pueden agregar mas numeros");
+		
+		int numero = randomCelda();
+		int fila = numero / grilla.cantFilas();
+		int columna = numero % grilla.cantColumnas();
+		
+		if(grilla.casilleroOcupado(fila, columna))
+			agregarNumero();
+		else
+			grilla.agregarNumero(fila, columna, generarNumero());
+	}
+	
+	private int generarNumero(){
+		Random rnd = new Random();
+		int[] num= {2,4};
+		return num[ rnd.nextInt(2) ];
+	}
+	
+	private int randomCelda()
+	{
+		Random rnd = new Random();
+		return rnd.nextInt( grilla.cantidadCasilleros() );
+	}
+	
+	private boolean hayMovimientos()
+	{
+		return true;
+	}
+	
+	
+	
 }

@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Color;
 
 public class FormularioPrincipal {
 
@@ -149,8 +150,8 @@ public class FormularioPrincipal {
 		pnl13.add(lbl13);
 		
 		JPanel pnl20 = new JPanel();
-		pnl20.setBackground(SystemColor.activeCaption);
-		pnl20.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
+		pnl20.setBackground(Color.MAGENTA);
+		pnl20.setBorder(UIManager.getBorder("RootPane.informationDialogBorder"));
 		pnl20.setBounds(66, 206, 75, 75);
 		frm2048.getContentPane().add(pnl20);
 		
