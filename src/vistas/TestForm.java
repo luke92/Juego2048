@@ -3,6 +3,7 @@ package vistas;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class TestForm {
 
@@ -38,12 +39,12 @@ public class TestForm {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 368);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//CasilleroForm casillero0 = new CasilleroForm(0, 0, 50, 50);
+		//casillero0.modificarNumero("2");
+		TableroForm tablero = new TableroForm(4, 4, 25);
+		frame.getContentPane().add(tablero.getForm());
 		frame.getContentPane().setLayout(null);
 		
-		CasilleroForm casillero0 = new CasilleroForm(20, 10, 75, 75);
-		casillero0.modificarNumero("2");
-		frame.getContentPane().add("0",casillero0.getForm());
-		
 	}
-
 }
