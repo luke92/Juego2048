@@ -37,14 +37,14 @@ public class TestForm {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 368);
+		frame.setBounds(100, 100, 300, 520);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//CasilleroForm casillero0 = new CasilleroForm(0, 0, 50, 50);
 		//casillero0.modificarNumero("2");
 		TableroForm tablero = new TableroForm(4, 4, 25);
 		frame.getContentPane().add(tablero.getForm());
-		frame.getContentPane().setLayout(null);
+//		frame.getContentPane().setLayout(null);
 		
 	}
 }

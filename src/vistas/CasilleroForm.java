@@ -21,10 +21,11 @@ public class CasilleroForm
 		panel.setBorder(UIManager.getBorder("RootPane.informationDialogBorder"));
 		panel.setBounds(posicionX, posicionY, ancho, alto);
 		
-		label = new JLabel("");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setVerticalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("Calibri", Font.PLAIN, 29));
+		label = new JLabel("4");
+//		label.setHorizontalAlignment(SwingConstants.CENTER);
+//		label.setVerticalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Calibri", Font.PLAIN, 70));
+		
 		panel.add(label);
 	}
 	
