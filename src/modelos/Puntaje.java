@@ -22,6 +22,10 @@ public class Puntaje
 		this.puntos = puntos;
 	}
 	
+	public void acumularPuntos(int puntos)
+	{
+		this.puntos += puntos;
+	}
 	
 	
 }

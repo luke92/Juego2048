@@ -36,4 +36,8 @@ public class Casillero
 		if(numero == 0) return " - ";
 		else return " " + numero + " ";
 	}
+	
+	public boolean equals(Casillero c2){
+		return this.valor() == c2.valor();
+	}
 }
