@@ -5,7 +5,11 @@ public class Puntaje
 	private String nombre;
 	private Integer puntos;
 	
-	public Puntaje(){}
+	public Puntaje()
+	{
+		nombre = "";
+		puntos = 0;
+	}
 	
 	public Puntaje(String nombre)
 	{

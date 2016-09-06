@@ -2,18 +2,29 @@ package controladores;
 
 import java.util.Random;
 
+import modelos.Puntaje;
+
 public class Tablero 
 {
 	private Grilla grilla;
+	private Puntaje puntaje;
 	
 	public Tablero(int filas, int columnas)
 	{
 		grilla = new Grilla(filas, columnas);
+		puntaje = new Puntaje();
 	}
 	
 	public void moverIzquierda()
 	{
-		
+		for(int i = 0; i < grilla.cantFilas(); i++)
+		{
+			buscarCoincidenciasIzquierda(0,1);
+			for(int j = 0; j < grilla.cantColumnas(); j++)
+			{
+				
+			}
+		}
 	}
 	
 	public void moverDerecha()
@@ -48,7 +59,7 @@ public class Tablero
 		if(grilla.casilleroOcupado(fila, columna))
 			agregarNumero();
 		else
-			grilla.agregarNumero(fila, columna, generarNumero());
+			grilla.asignarNumero(fila, columna, generarNumero());
 	}
 	
 	private int generarNumero(){

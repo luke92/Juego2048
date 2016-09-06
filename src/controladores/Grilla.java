@@ -34,7 +34,7 @@ public class Grilla
 		return false;
 	}
 	
-	public void agregarNumero(int fila, int columna, int numero)
+	public void asignarNumero(int fila, int columna, int numero)
 	{
 		casilleros[fila][columna] = new Casillero(numero);
 		cantCasillerosOcupados++;
