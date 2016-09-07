@@ -22,9 +22,14 @@ public class Puntaje
 		this.puntos = puntos;
 	}
 	
-	public void acumularPuntos(int puntos)
+	public void acumularPuntos(int puntosGanados)
 	{
-		this.puntos += puntos;
+		this.puntos += puntosGanados;
+	}
+	
+	public Integer puntajeActual()
+	{
+		return this.puntos;
 	}
 	
 	

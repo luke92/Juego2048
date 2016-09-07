@@ -1,5 +1,7 @@
 package controladores;
 
+import java.util.Random;
+
 public class Grilla {
 	private Casillero casilleros[][];
 	private int cantCasillerosOcupados;
@@ -32,7 +34,6 @@ public class Grilla {
 
 	public void asignarNumero(int fila, int columna, int numero) {
 		casilleros[fila][columna] = new Casillero(numero);
-		cantCasillerosOcupados++;
 	}
 
 	public void removerNumero(int fila, int columna) {
@@ -72,5 +73,32 @@ public class Grilla {
 
 	public boolean casillerosIguales(int filaCasillero1,int columnaCasillero1,int filaCasillero2,int columnaCasillero2) {
 		return getCasillero(filaCasillero1, columnaCasillero1).equals(getCasillero(filaCasillero2, columnaCasillero2));
+	}
+
+	public void agregarNumeroAleatorio() 
+	{
+		int numero = randomCelda();
+		int fila = numero / this.cantFilas();
+		int columna = numero % this.cantColumnas();
+
+		if (this.casilleroOcupado(fila, columna))
+			agregarNumeroAleatorio();
+		else
+		{
+			cantCasillerosOcupados++;
+			this.asignarNumero(fila, columna, generarNumero());
+		}
+		
+	}
+	
+	private int generarNumero() {
+		Random rnd = new Random();
+		int[] num = { 2, 4 };
+		return num[rnd.nextInt(2)];
+	}
+
+	private int randomCelda() {
+		Random rnd = new Random();
+		return rnd.nextInt(this.cantidadCasilleros());
 	}
 }

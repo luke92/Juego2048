@@ -11,10 +11,12 @@ public class Consola
 		tablero.agregarNumero();
 		
 		String opcion;
-		String opciones = "1 Izquierda 2 Derecha 3 Arriba 4 Abajo";
+		String opciones;
 		
 		while(true)
 		{
+			opciones = "1 Izquierda 2 Derecha 3 Arriba 4 Abajo, Puntos " + tablero.puntajeActual();
+			
 			System.out.println(tablero.mostrar());
 			System.out.println();
 			System.out.println(opciones);
