@@ -15,34 +15,32 @@ public class Tablero {
 
 	public void moverIzquierda() {
 		for (int i = 0; i < grilla.cantFilas(); i++) {
-			buscarCoincidenciasIzquierda(i,0, 1);
+			buscarCoincidenciasIzquierda(i, 0, 1);
 			for (int j = 0; j < grilla.cantColumnas(); j++) {
-				
+
 			}
 		}
 	}
 
 	private void buscarCoincidenciasIzquierda(int fila, int posInicial, int posBuscar) {
-		if(posBuscar>=grilla.cantColumnas() || posInicial>=grilla.cantColumnas())
+		if (posBuscar >= grilla.cantColumnas() || posInicial >= grilla.cantColumnas()-1)
 			return;
-		
-		if(!grilla.casilleroOcupado(fila, posInicial))
-		{
-			buscarCoincidenciasIzquierda(fila, posInicial+1, posBuscar+1);
+
+		if (!grilla.casilleroOcupado(fila, posInicial)) {	//si en la posInicial esta libre
+			buscarCoincidenciasIzquierda(fila, posInicial + 1, posBuscar + 1);
 		}
-		if(!grilla.casilleroOcupado(fila, posBuscar))
-		{
-			buscarCoincidenciasIzquierda(fila, posInicial, posBuscar+1);
+		if (!grilla.casilleroOcupado(fila, posBuscar)) {	//si en la posBuscar esta libre
+			buscarCoincidenciasIzquierda(fila, posInicial, posBuscar + 1);
 		}
-		if(!grilla.casillerosIguales(fila, posInicial, fila, posBuscar)){
-			buscarCoincidenciasIzquierda(fila, posInicial+1, posBuscar+1);
+		if (!grilla.casillerosIguales(fila, posInicial, fila, posBuscar)) {	//si NO SON IGUALES
+			buscarCoincidenciasIzquierda(fila, posInicial + 1, posBuscar + 1);
 		}
-		if (grilla.casillerosIguales(fila, posInicial, fila, posBuscar)){
-			int  valor= grilla.getCasillero(fila, posInicial).valor()*2;
+		if (grilla.casillerosIguales(fila, posInicial, fila, posBuscar)) {
+			int valor = grilla.getCasillero(fila, posInicial).valor() * 2;
 			puntaje.acumularPuntos(valor);
 			grilla.asignarNumero(fila, posInicial, valor);
 			grilla.removerNumero(fila, posBuscar);
-			buscarCoincidenciasIzquierda(fila, posBuscar+1, posBuscar+2);
+			buscarCoincidenciasIzquierda(fila, posBuscar + 1, posBuscar + 2);
 		}
 	}
 
