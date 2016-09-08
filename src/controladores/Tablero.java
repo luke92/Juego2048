@@ -15,7 +15,6 @@ public class Tablero {
 
 	public void moverIzquierda() {
 		for (int i = 0; i < grilla.cantFilas(); i++) {
-//			buscarCoincidenciasIzquierda(i, 0, 1);
 			moverCasillerosIzq(i, 0, 0);
 			buscarCoincidenciasIzquierda(i, 0, 1);
 			for (int j = 0; j < grilla.cantColumnas(); j++) {
@@ -27,9 +26,9 @@ public class Tablero {
 	private void moverCasillerosIzq(int fila, int pos, int casLibre) { // porFila
 		if (pos < grilla.cantColumnas()) {
 			if (!grilla.casilleroOcupado(fila, pos)) { // libre
-				if(casLibre>=pos)
-					casLibre= pos;
-				moverCasillerosIzq(fila, pos + 1,casLibre);
+				if (casLibre >= pos)
+					casLibre = pos;
+				moverCasillerosIzq(fila, pos + 1, casLibre);
 			} else { // ocupado
 				if (casLibre < pos) {
 					int valor = grilla.getCasillero(fila, pos).valor();
@@ -37,7 +36,7 @@ public class Tablero {
 					pos = casLibre;
 					grilla.asignarNumero(fila, pos, valor);
 				}
-				moverCasillerosIzq(fila, pos + 1, casLibre+1);
+				moverCasillerosIzq(fila, pos + 1, casLibre + 1);
 			}
 		}
 	}
@@ -46,13 +45,13 @@ public class Tablero {
 		if (posBuscar < grilla.cantColumnas() && posInicial < grilla.cantColumnas() - 1) {
 			if (!grilla.casilleroOcupado(fila, posInicial)
 					|| !grilla.casillerosIguales(fila, posInicial, fila, posBuscar)) {
-				buscarCoincidenciasIzquierda(fila, posInicial + 1, posBuscar + 1);
+				buscarCoincidenciasIzquierda(fila, posInicial++, posBuscar++);
 			}
 			if (!grilla.casillerosIguales(fila, posInicial, fila, posBuscar)) {
-				buscarCoincidenciasIzquierda(fila, posInicial + 1, posBuscar + 1);
+				buscarCoincidenciasIzquierda(fila, posInicial++, posBuscar++);
 			} else {
 				if (!grilla.casilleroOcupado(fila, posBuscar)) {
-					buscarCoincidenciasIzquierda(fila, posInicial, posBuscar + 1);
+					buscarCoincidenciasIzquierda(fila, posInicial, posBuscar++);
 				} else {
 					if (grilla.casillerosIguales(fila, posInicial, fila, posBuscar)) {
 						int valor = grilla.getCasillero(fila, posInicial).valor() * 2;
@@ -60,7 +59,7 @@ public class Tablero {
 						puntaje.acumularPuntos(valor);
 						grilla.asignarNumero(fila, posInicial, valor);
 						grilla.removerNumero(fila, posBuscar);
-						buscarCoincidenciasIzquierda(fila, posInicial + 1, posBuscar + 1);
+						buscarCoincidenciasIzquierda(fila, posInicial++, posBuscar++);
 					}
 				}
 			}
