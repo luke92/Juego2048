@@ -24,16 +24,16 @@ public class Consola
 			switch(opcion)
 			{
 				case "1": tablero.moverIzquierda();
-				System.out.println("Izq");
+				System.out.println("Izquierda");
 					break;
 				case "2": tablero.moverDerecha();
-				System.out.println("der");
+				System.out.println("Derecha");
 					break;
 				case "3": tablero.moverArriba();
-				System.out.println("up");
+				System.out.println("Arriba");
 					break;
 				case "4": tablero.moverAbajo();
-				System.out.println("down");
+				System.out.println("Abajo");
 					break;
 				default: System.out.println("opcion erronea");
 			}
