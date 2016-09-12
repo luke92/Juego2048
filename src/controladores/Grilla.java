@@ -4,15 +4,18 @@ import java.util.Random;
 
 public class Grilla {
 	private Casillero casilleros[][];
-	private int cantCasillerosOcupados;
 
 	public Grilla(int filas, int columnas) {
 		invariante(filas, columnas);
 		casilleros = new Casillero[filas][columnas];
 		inicializarCasilleros();
-		cantCasillerosOcupados = 0;
 	}
 
+	public Grilla(Grilla aux)
+	{
+		casilleros = aux.casilleros;
+	}
+	
 	private void invariante(int filas, int columnas) {
 		if (filas != columnas)
 			throw new RuntimeException("La cantidad de filas debe ser igual a la de columnas");
@@ -38,7 +41,6 @@ public class Grilla {
 
 	public void removerNumero(int fila, int columna) {
 		casilleros[fila][columna] = new Casillero(0);
-		cantCasillerosOcupados--;
 	}
 
 	public int cantidadCasilleros() {
@@ -53,8 +55,18 @@ public class Grilla {
 		return casilleros[0].length;
 	}
 
-	public int casillerosOcupados() {
-		return cantCasillerosOcupados;
+	public int casillerosOcupados() 
+	{
+		int cont = 0;
+		for(int fila = 0; fila < cantFilas(); fila++)
+		{
+			for(int columna = 0; columna < cantColumnas(); columna++)
+			{
+				if(this.getCasillero(fila, columna).valor() != 0)
+					cont++;
+			}
+		}
+		return cont;
 	}
 
 	public Casillero getCasillero(int fila, int columna) {
@@ -85,7 +97,6 @@ public class Grilla {
 			agregarNumeroAleatorio();
 		else
 		{
-			cantCasillerosOcupados++;
 			this.asignarNumero(fila, columna, generarNumero());
 		}
 		

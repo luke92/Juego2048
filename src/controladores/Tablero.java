@@ -16,7 +16,8 @@ public class Tablero {
 	
 	private Tablero(Tablero aux)
 	{
-		this.grilla = aux.grilla;
+		this.grilla = new Grilla(aux.grilla);
+		puntaje = new Puntaje();
 	}
 
 	public boolean moverIzquierda() 
@@ -115,6 +116,7 @@ public class Tablero {
 					grilla.asignarNumero(fila, colActual, grilla.getCasillero(fila, colSiguiente).valor());
 					grilla.asignarNumero(fila, colSiguiente,0);
 					bandera = true;
+					moverCasillerosDer(fila, colActual-1, colSiguiente-1);
 				}
 				else
 				{
@@ -182,6 +184,7 @@ public class Tablero {
 					grilla.asignarNumero(filaActual, columna, grilla.getCasillero(filaSiguiente, columna).valor());
 					grilla.asignarNumero(filaSiguiente, columna,0);
 					bandera = true;
+					moverCasillerosArr(columna, filaActual+1, filaSiguiente+1);
 				}
 				else
 				{
@@ -243,6 +246,7 @@ public class Tablero {
 					grilla.asignarNumero(filaActual, columna, grilla.getCasillero(filaSiguiente, columna).valor());
 					grilla.asignarNumero(filaSiguiente, columna,0);
 					bandera = true;
+					moverCasillerosAba(columna, filaActual-1, filaSiguiente-1);
 				}
 				else
 				{

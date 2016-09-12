@@ -56,6 +56,9 @@ public class Consola
 			}
 			
 		}
+		System.out.println(tablero.mostrar());
+		System.out.println("Game Over");
+		System.out.println("Puntos: " + tablero.puntajeActual());
 	
 	}
 		
