@@ -6,75 +6,54 @@ public class Tablero {
 	private Grilla grilla;
 	private Puntaje puntaje;
 	private boolean bandera;
-	
-	public Tablero(int filas, int columnas) 
-	{
+
+	public Tablero(int filas, int columnas) {
 		grilla = new Grilla(filas, columnas);
 		puntaje = new Puntaje();
-	
+
 	}
-	
-	private Tablero(Tablero aux)
-	{
+
+	private Tablero(Tablero aux) {
 		this.grilla = new Grilla(aux.grilla);
 		puntaje = new Puntaje();
 	}
 
-	public boolean moverIzquierda() 
-	{
+	public boolean moverIzquierda() {
 		bandera = false;
-		for (int fila = 0; fila < grilla.cantFilas(); fila++) 
-		{
+		for (int fila = 0; fila < grilla.cantFilas(); fila++) {
 			moverCasillerosIzq(fila, 0, 1);
-			combinarCasillerosIzq(fila,0,1);
-			moverCasillerosIzq(fila,0,1);
+			combinarCasillerosIzq(fila, 0, 1);
+			moverCasillerosIzq(fila, 0, 1);
 		}
 		return bandera;
 	}
 
-	private void moverCasillerosIzq(int fila, int colActual, int colSiguiente) 
-	{
-		if(colSiguiente >= grilla.cantColumnas()) 
-		{
+	private void moverCasillerosIzq(int fila, int colActual, int colSiguiente) {
+		if (colSiguiente >= grilla.cantColumnas()) {
 			return;
-		}
-		else
-		{
-			if(!grilla.casilleroOcupado(fila, colActual))
-			{
-				if(grilla.casilleroOcupado(fila, colSiguiente))
-				{
+		} else {
+			if (!grilla.casilleroOcupado(fila, colActual)) {
+				if (grilla.casilleroOcupado(fila, colSiguiente)) {
 					grilla.asignarNumero(fila, colActual, grilla.getCasillero(fila, colSiguiente).valor());
-					grilla.asignarNumero(fila, colSiguiente,0);
+					grilla.asignarNumero(fila, colSiguiente, 0);
 					bandera = true;
-					moverCasillerosIzq(fila, colActual+1, colSiguiente+1); 
+					moverCasillerosIzq(fila, colActual + 1, colSiguiente + 1);
+				} else {
+					moverCasillerosIzq(fila, colActual, colSiguiente + 1);
 				}
-				else
-				{
-					moverCasillerosIzq(fila,colActual,colSiguiente+1);
-				}
-			}
-			else
-			{
-				moverCasillerosIzq(fila, colActual+1, colSiguiente+1);
+			} else {
+				moverCasillerosIzq(fila, colActual + 1, colSiguiente + 1);
 			}
 		}
 	}
-	
-	private void combinarCasillerosIzq(int fila, int colActual, int colSiguiente)
-	{
-		if(colSiguiente >= grilla.cantColumnas()) 
-		{
+
+	private void combinarCasillerosIzq(int fila, int colActual, int colSiguiente) {
+		if (colSiguiente >= grilla.cantColumnas()) {
 			return;
-		}
-		else
-		{
-			if(grilla.casilleroOcupado(fila, colActual))
-			{
-				if(grilla.casilleroOcupado(fila, colSiguiente))
-				{
-					if(grilla.casillerosIguales(fila, colActual, fila, colSiguiente))
-					{
+		} else {
+			if (grilla.casilleroOcupado(fila, colActual)) {
+				if (grilla.casilleroOcupado(fila, colSiguiente)) {
+					if (grilla.casillerosIguales(fila, colActual, fila, colSiguiente)) {
 						int valor = grilla.getCasillero(fila, colActual).valor() * 2;
 						System.out.println(valor);
 						puntaje.acumularPuntos(valor);
@@ -84,66 +63,47 @@ public class Tablero {
 					}
 				}
 			}
-			combinarCasillerosIzq(fila, colActual+1, colSiguiente+1);
+			combinarCasillerosIzq(fila, colActual + 1, colSiguiente + 1);
 		}
-		
+
 	}
 
-	public boolean moverDerecha() 
-	{
+	public boolean moverDerecha() {
 		bandera = false;
-		for(int fila = 0; fila < grilla.cantFilas(); fila++)
-		{
-			moverCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2);
-			combinarCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2);
-			moverCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2);
+		for (int fila = 0; fila < grilla.cantFilas(); fila++) {
+			moverCasillerosDer(fila, grilla.cantColumnas() - 1, grilla.cantColumnas() - 2);
+			combinarCasillerosDer(fila, grilla.cantColumnas() - 1, grilla.cantColumnas() - 2);
+			moverCasillerosDer(fila, grilla.cantColumnas() - 1, grilla.cantColumnas() - 2);
 		}
 		return bandera;
 	}
-	
-	private void moverCasillerosDer(int fila, int colActual, int colSiguiente) 
-	{
-		if(colSiguiente < 0) 
-		{
+
+	private void moverCasillerosDer(int fila, int colActual, int colSiguiente) {
+		if (colSiguiente < 0) {
 			return;
-		}
-		else
-		{
-			if(!grilla.casilleroOcupado(fila, colActual))
-			{
-				if(grilla.casilleroOcupado(fila, colSiguiente))
-				{
+		} else {
+			if (!grilla.casilleroOcupado(fila, colActual)) {
+				if (grilla.casilleroOcupado(fila, colSiguiente)) {
 					grilla.asignarNumero(fila, colActual, grilla.getCasillero(fila, colSiguiente).valor());
-					grilla.asignarNumero(fila, colSiguiente,0);
+					grilla.asignarNumero(fila, colSiguiente, 0);
 					bandera = true;
-					moverCasillerosDer(fila, colActual-1, colSiguiente-1);
+					moverCasillerosDer(fila, colActual - 1, colSiguiente - 1);
+				} else {
+					moverCasillerosDer(fila, colActual, colSiguiente - 1);
 				}
-				else
-				{
-					moverCasillerosDer(fila,colActual,colSiguiente-1);
-				}
-			}
-			else
-			{
-				moverCasillerosDer(fila, colActual-1, colSiguiente-1);
+			} else {
+				moverCasillerosDer(fila, colActual - 1, colSiguiente - 1);
 			}
 		}
 	}
-	
-	private void combinarCasillerosDer(int fila, int colActual, int colSiguiente)
-	{
-		if(colSiguiente < 0) 
-		{
+
+	private void combinarCasillerosDer(int fila, int colActual, int colSiguiente) {
+		if (colSiguiente < 0) {
 			return;
-		}
-		else
-		{
-			if(grilla.casilleroOcupado(fila, colActual))
-			{
-				if(grilla.casilleroOcupado(fila, colSiguiente))
-				{
-					if(grilla.casillerosIguales(fila, colActual, fila, colSiguiente))
-					{
+		} else {
+			if (grilla.casilleroOcupado(fila, colActual)) {
+				if (grilla.casilleroOcupado(fila, colSiguiente)) {
+					if (grilla.casillerosIguales(fila, colActual, fila, colSiguiente)) {
 						int valor = grilla.getCasillero(fila, colActual).valor() * 2;
 						System.out.println(valor);
 						puntaje.acumularPuntos(valor);
@@ -153,60 +113,45 @@ public class Tablero {
 					}
 				}
 			}
-			combinarCasillerosDer(fila, colActual-1, colSiguiente-1);
+			combinarCasillerosDer(fila, colActual - 1, colSiguiente - 1);
 		}
 	}
-	
-	public boolean moverArriba() 
-	{
+
+	public boolean moverArriba() {
 		bandera = false;
-		for(int columna = 0; columna < grilla.cantColumnas(); columna++)
-		{
-			moverCasillerosArr(columna,0,1);
-			combinarCasillerosArr(columna,0,1);
-			moverCasillerosArr(columna,0,1);
+		for (int columna = 0; columna < grilla.cantColumnas(); columna++) {
+			moverCasillerosArr(columna, 0, 1);
+			combinarCasillerosArr(columna, 0, 1);
+			moverCasillerosArr(columna, 0, 1);
 		}
 		return bandera;
 	}
-	
-	private void moverCasillerosArr(int columna, int filaActual, int filaSiguiente)
-	{
-		if(filaSiguiente >= grilla.cantFilas())
-		{
+
+	private void moverCasillerosArr(int columna, int filaActual, int filaSiguiente) {
+		if (filaSiguiente >= grilla.cantFilas()) {
 			return;
-		}
-		else
-		{
-			if(!grilla.casilleroOcupado(filaActual, columna))
-			{
-				if(grilla.casilleroOcupado(filaSiguiente, columna))
-				{
+		} else {
+			if (!grilla.casilleroOcupado(filaActual, columna)) {
+				if (grilla.casilleroOcupado(filaSiguiente, columna)) {
 					grilla.asignarNumero(filaActual, columna, grilla.getCasillero(filaSiguiente, columna).valor());
-					grilla.asignarNumero(filaSiguiente, columna,0);
+					grilla.asignarNumero(filaSiguiente, columna, 0);
 					bandera = true;
-					moverCasillerosArr(columna, filaActual+1, filaSiguiente+1);
+					moverCasillerosArr(columna, filaActual + 1, filaSiguiente + 1);
+				} else {
+					moverCasillerosArr(columna, filaActual, filaSiguiente + 1);
 				}
-				else
-				{
-					moverCasillerosArr(columna,filaActual,filaSiguiente+1);
-				}
-			}
-			else
-			{
-				moverCasillerosArr(columna, filaActual+1, filaSiguiente+1);
+			} else {
+				moverCasillerosArr(columna, filaActual + 1, filaSiguiente + 1);
 			}
 		}
 	}
-	
-	private void combinarCasillerosArr(int columna, int filaActual, int filaSiguiente)
-	{
-		if(filaSiguiente >= grilla.cantFilas()) return;
-		if(grilla.casilleroOcupado(filaActual, columna))
-		{
-			if(grilla.casilleroOcupado(filaSiguiente, columna))
-			{
-				if(grilla.casillerosIguales(filaActual, columna, filaSiguiente, columna))
-				{
+
+	private void combinarCasillerosArr(int columna, int filaActual, int filaSiguiente) {
+		if (filaSiguiente >= grilla.cantFilas())
+			return;
+		if (grilla.casilleroOcupado(filaActual, columna)) {
+			if (grilla.casilleroOcupado(filaSiguiente, columna)) {
+				if (grilla.casillerosIguales(filaActual, columna, filaSiguiente, columna)) {
 					int valor = grilla.getCasillero(filaActual, columna).valor() * 2;
 					System.out.println(valor);
 					puntaje.acumularPuntos(valor);
@@ -216,63 +161,45 @@ public class Tablero {
 				}
 			}
 		}
-		combinarCasillerosArr(columna, filaActual+1, filaSiguiente+1);
+		combinarCasillerosArr(columna, filaActual + 1, filaSiguiente + 1);
 	}
 
-	public boolean moverAbajo() 
-	{
+	public boolean moverAbajo() {
 		bandera = false;
-		for(int columna = 0; columna < grilla.cantColumnas(); columna++)
-		{
-			moverCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2);
-			combinarCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2);
-			moverCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2);
+		for (int columna = 0; columna < grilla.cantColumnas(); columna++) {
+			moverCasillerosAba(columna, grilla.cantFilas() - 1, grilla.cantFilas() - 2);
+			combinarCasillerosAba(columna, grilla.cantFilas() - 1, grilla.cantFilas() - 2);
+			moverCasillerosAba(columna, grilla.cantFilas() - 1, grilla.cantFilas() - 2);
 		}
 		return bandera;
 	}
-	
-	private void moverCasillerosAba(int columna, int filaActual, int filaSiguiente)
-	{
-		if(filaSiguiente < 0)
-		{
+
+	private void moverCasillerosAba(int columna, int filaActual, int filaSiguiente) {
+		if (filaSiguiente < 0) {
 			return;
-		}
-		else
-		{
-			if(!grilla.casilleroOcupado(filaActual, columna))
-			{
-				if(grilla.casilleroOcupado(filaSiguiente, columna))
-				{
+		} else {
+			if (!grilla.casilleroOcupado(filaActual, columna)) {
+				if (grilla.casilleroOcupado(filaSiguiente, columna)) {
 					grilla.asignarNumero(filaActual, columna, grilla.getCasillero(filaSiguiente, columna).valor());
-					grilla.asignarNumero(filaSiguiente, columna,0);
+					grilla.asignarNumero(filaSiguiente, columna, 0);
 					bandera = true;
-					moverCasillerosAba(columna, filaActual-1, filaSiguiente-1);
+					moverCasillerosAba(columna, filaActual - 1, filaSiguiente - 1);
+				} else {
+					moverCasillerosAba(columna, filaActual, filaSiguiente - 1);
 				}
-				else
-				{
-					moverCasillerosAba(columna,filaActual,filaSiguiente-1);
-				}
-			}
-			else
-			{
-				moverCasillerosAba(columna, filaActual-1, filaSiguiente-1);
+			} else {
+				moverCasillerosAba(columna, filaActual - 1, filaSiguiente - 1);
 			}
 		}
 	}
-	private void combinarCasillerosAba(int columna, int filaActual, int filaSiguiente)
-	{
-		if(filaSiguiente < 0)
-		{
+
+	private void combinarCasillerosAba(int columna, int filaActual, int filaSiguiente) {
+		if (filaSiguiente < 0) {
 			return;
-		}
-		else
-		{
-			if(grilla.casilleroOcupado(filaActual, columna))
-			{
-				if(grilla.casilleroOcupado(filaSiguiente, columna))
-				{
-					if(grilla.casillerosIguales(filaActual, columna, filaSiguiente, columna))
-					{
+		} else {
+			if (grilla.casilleroOcupado(filaActual, columna)) {
+				if (grilla.casilleroOcupado(filaSiguiente, columna)) {
+					if (grilla.casillerosIguales(filaActual, columna, filaSiguiente, columna)) {
 						int valor = grilla.getCasillero(filaActual, columna).valor() * 2;
 						System.out.println(valor);
 						puntaje.acumularPuntos(valor);
@@ -282,7 +209,7 @@ public class Tablero {
 					}
 				}
 			}
-			combinarCasillerosAba(columna, filaActual-1, filaSiguiente-1);
+			combinarCasillerosAba(columna, filaActual - 1, filaSiguiente - 1);
 		}
 	}
 
@@ -300,16 +227,18 @@ public class Tablero {
 		return this.puntaje.puntajeActual();
 	}
 
-	public boolean hayMovimientosDisponibles() 
-	{
-		if(grilla.cantidadCasilleros() == grilla.casillerosOcupados())
-		{
+	public void checkPuntaje() {
+		this.puntaje.checkPuntaje();
+	}
+
+	public boolean hayMovimientosDisponibles() {
+		if (grilla.cantidadCasilleros() == grilla.casillerosOcupados()) {
 			Tablero t = new Tablero(this);
-			if(!t.moverAbajo() && !t.moverArriba() && !t.moverDerecha() && !t.moverIzquierda())
+			if (!t.moverAbajo() && !t.moverArriba() && !t.moverDerecha() && !t.moverIzquierda())
 				return false;
-			else return true;
-		}
-		else
+			else
+				return true;
+		} else
 			return true;
 	}
 
