@@ -5,6 +5,7 @@ import modelos.Puntaje;
 public class Tablero {
 	private Grilla grilla;
 	private Puntaje puntaje;
+	private boolean bandera;
 	
 	public Tablero(int filas, int columnas) 
 	{
@@ -20,17 +21,17 @@ public class Tablero {
 
 	public boolean moverIzquierda() 
 	{
-		boolean bandera = false;
+		bandera = false;
 		for (int fila = 0; fila < grilla.cantFilas(); fila++) 
 		{
-			moverCasillerosIzq(fila, 0, 1,bandera);
-			combinarCasillerosIzq(fila,0,1,bandera);
-			moverCasillerosIzq(fila,0,1,bandera);
+			moverCasillerosIzq(fila, 0, 1);
+			combinarCasillerosIzq(fila,0,1);
+			moverCasillerosIzq(fila,0,1);
 		}
 		return bandera;
 	}
 
-	private void moverCasillerosIzq(int fila, int colActual, int colSiguiente, boolean bandera) 
+	private void moverCasillerosIzq(int fila, int colActual, int colSiguiente) 
 	{
 		if(colSiguiente >= grilla.cantColumnas()) 
 		{
@@ -45,21 +46,21 @@ public class Tablero {
 					grilla.asignarNumero(fila, colActual, grilla.getCasillero(fila, colSiguiente).valor());
 					grilla.asignarNumero(fila, colSiguiente,0);
 					bandera = true;
-					moverCasillerosIzq(fila, colActual+1, colSiguiente+1,bandera); 
+					moverCasillerosIzq(fila, colActual+1, colSiguiente+1); 
 				}
 				else
 				{
-					moverCasillerosIzq(fila,colActual,colSiguiente+1,bandera);
+					moverCasillerosIzq(fila,colActual,colSiguiente+1);
 				}
 			}
 			else
 			{
-				moverCasillerosIzq(fila, colActual+1, colSiguiente+1,bandera);
+				moverCasillerosIzq(fila, colActual+1, colSiguiente+1);
 			}
 		}
 	}
 	
-	private void combinarCasillerosIzq(int fila, int colActual, int colSiguiente, boolean bandera)
+	private void combinarCasillerosIzq(int fila, int colActual, int colSiguiente)
 	{
 		if(colSiguiente >= grilla.cantColumnas()) 
 		{
@@ -82,24 +83,24 @@ public class Tablero {
 					}
 				}
 			}
-			combinarCasillerosIzq(fila, colActual+1, colSiguiente+1,bandera);
+			combinarCasillerosIzq(fila, colActual+1, colSiguiente+1);
 		}
 		
 	}
 
 	public boolean moverDerecha() 
 	{
-		boolean bandera = false;
+		bandera = false;
 		for(int fila = 0; fila < grilla.cantFilas(); fila++)
 		{
-			moverCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2,bandera);
-			combinarCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2,bandera);
-			moverCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2,bandera);
+			moverCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2);
+			combinarCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2);
+			moverCasillerosDer(fila,grilla.cantColumnas()-1,grilla.cantColumnas()-2);
 		}
 		return bandera;
 	}
 	
-	private void moverCasillerosDer(int fila, int colActual, int colSiguiente, boolean bandera) 
+	private void moverCasillerosDer(int fila, int colActual, int colSiguiente) 
 	{
 		if(colSiguiente < 0) 
 		{
@@ -117,17 +118,17 @@ public class Tablero {
 				}
 				else
 				{
-					moverCasillerosDer(fila,colActual,colSiguiente-1,bandera);
+					moverCasillerosDer(fila,colActual,colSiguiente-1);
 				}
 			}
 			else
 			{
-				moverCasillerosDer(fila, colActual-1, colSiguiente-1,bandera);
+				moverCasillerosDer(fila, colActual-1, colSiguiente-1);
 			}
 		}
 	}
 	
-	private void combinarCasillerosDer(int fila, int colActual, int colSiguiente, boolean bandera)
+	private void combinarCasillerosDer(int fila, int colActual, int colSiguiente)
 	{
 		if(colSiguiente < 0) 
 		{
@@ -150,23 +151,23 @@ public class Tablero {
 					}
 				}
 			}
-			combinarCasillerosDer(fila, colActual-1, colSiguiente-1,bandera);
+			combinarCasillerosDer(fila, colActual-1, colSiguiente-1);
 		}
 	}
 	
 	public boolean moverArriba() 
 	{
-		boolean bandera = false;
+		bandera = false;
 		for(int columna = 0; columna < grilla.cantColumnas(); columna++)
 		{
-			moverCasillerosArr(columna,0,1,bandera);
-			combinarCasillerosArr(columna,0,1,bandera);
-			moverCasillerosArr(columna,0,1,bandera);
+			moverCasillerosArr(columna,0,1);
+			combinarCasillerosArr(columna,0,1);
+			moverCasillerosArr(columna,0,1);
 		}
 		return bandera;
 	}
 	
-	private void moverCasillerosArr(int columna, int filaActual, int filaSiguiente, boolean bandera)
+	private void moverCasillerosArr(int columna, int filaActual, int filaSiguiente)
 	{
 		if(filaSiguiente >= grilla.cantFilas())
 		{
@@ -184,19 +185,19 @@ public class Tablero {
 				}
 				else
 				{
-					moverCasillerosArr(columna,filaActual,filaSiguiente+1,bandera);
+					moverCasillerosArr(columna,filaActual,filaSiguiente+1);
 				}
 			}
 			else
 			{
-				moverCasillerosArr(columna, filaActual+1, filaSiguiente+1,bandera);
+				moverCasillerosArr(columna, filaActual+1, filaSiguiente+1);
 			}
 		}
 	}
 	
-	private boolean combinarCasillerosArr(int columna, int filaActual, int filaSiguiente, boolean bandera)
+	private void combinarCasillerosArr(int columna, int filaActual, int filaSiguiente)
 	{
-		if(filaSiguiente >= grilla.cantFilas()) return bandera;
+		if(filaSiguiente >= grilla.cantFilas()) return;
 		if(grilla.casilleroOcupado(filaActual, columna))
 		{
 			if(grilla.casilleroOcupado(filaSiguiente, columna))
@@ -212,22 +213,22 @@ public class Tablero {
 				}
 			}
 		}
-		return combinarCasillerosArr(columna, filaActual+1, filaSiguiente+1,bandera);
+		combinarCasillerosArr(columna, filaActual+1, filaSiguiente+1);
 	}
 
 	public boolean moverAbajo() 
 	{
-		boolean bandera = false;
+		bandera = false;
 		for(int columna = 0; columna < grilla.cantColumnas(); columna++)
 		{
-			moverCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2,bandera);
-			combinarCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2,bandera);
-			moverCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2,bandera);
+			moverCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2);
+			combinarCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2);
+			moverCasillerosAba(columna,grilla.cantFilas()-1,grilla.cantFilas()-2);
 		}
 		return bandera;
 	}
 	
-	private void moverCasillerosAba(int columna, int filaActual, int filaSiguiente, boolean bandera)
+	private void moverCasillerosAba(int columna, int filaActual, int filaSiguiente)
 	{
 		if(filaSiguiente < 0)
 		{
@@ -245,16 +246,16 @@ public class Tablero {
 				}
 				else
 				{
-					moverCasillerosAba(columna,filaActual,filaSiguiente-1,bandera);
+					moverCasillerosAba(columna,filaActual,filaSiguiente-1);
 				}
 			}
 			else
 			{
-				moverCasillerosAba(columna, filaActual-1, filaSiguiente-1,bandera);
+				moverCasillerosAba(columna, filaActual-1, filaSiguiente-1);
 			}
 		}
 	}
-	private void combinarCasillerosAba(int columna, int filaActual, int filaSiguiente, boolean bandera)
+	private void combinarCasillerosAba(int columna, int filaActual, int filaSiguiente)
 	{
 		if(filaSiguiente < 0)
 		{
@@ -277,7 +278,7 @@ public class Tablero {
 					}
 				}
 			}
-			combinarCasillerosAba(columna, filaActual-1, filaSiguiente-1,bandera);
+			combinarCasillerosAba(columna, filaActual-1, filaSiguiente-1);
 		}
 	}
 
