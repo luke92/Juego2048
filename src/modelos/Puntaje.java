@@ -4,17 +4,19 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Puntaje {
 	private Integer puntaje;
 	private String nombre;
 	private Integer mejorPuntaje;
-
+	private String nombreArchivo;
 	public Puntaje() {
 		puntaje = 0;
 		nombre = "";
 		mejorPuntaje = 0;
+		nombreArchivo = "puntuacionMasAlta.txt";
 	}
 
 	public Puntaje(Integer puntos) {
@@ -28,39 +30,30 @@ public class Puntaje {
 	public Integer puntajeActual() {
 		return this.puntaje;
 	}
-
-	public void checkPuntaje() {
-		if (puntaje >= mejorPuntaje) {
-			System.out.println("Nueva puntacion mas alta. Cual es tu nombre?");
-			Scanner entradaEscaner = new Scanner(System.in);
-			nombre = entradaEscaner.nextLine();
-			mejorPuntaje = puntaje;
-
-			File scorefile = new File("puntuacionMasAlta.dat");
-			if (scorefile.exists()) {
-				try {
-					scorefile.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-			FileWriter writeFile = null;
-			BufferedWriter writer = null;
-			try {
-				writeFile = new FileWriter(scorefile);
-				writer = new BufferedWriter(writeFile);
-				writer.write(nombre + ": " + this.mejorPuntaje);
-			} catch (Exception e) {
-				// errores
-			} finally {
-				try {
-					if (writer != null)
-						writer.close();
-				} catch (Exception e) {
-				}
-			}
+	
+	public void grabarPuntaje(String nombre)
+	{
+		ArrayList<String> puntuacion = new ArrayList<String>();
+		puntuacion.add(nombre);
+		puntuacion.add(String.valueOf(puntaje));
+		AccesoDatos.grabar(nombreArchivo, puntuacion);
+	}
+	
+	public Puntaje puntajeMaximo()
+	{
+		ArrayList<String> puntuaciones = AccesoDatos.leer(nombreArchivo);
+		Puntaje puntuacionMaxima = new Puntaje();
+		if(!puntuaciones.isEmpty())
+		{
+			puntuacionMaxima.nombre = puntuaciones.get(0);
+			puntuacionMaxima.puntaje = Integer.parseInt(puntuaciones.get(1));
 		}
+		else
+		{
+			puntuacionMaxima.nombre = "admin";
+			puntuacionMaxima.puntaje = 0;
+		}
+		return puntuacionMaxima;
 	}
 
 }

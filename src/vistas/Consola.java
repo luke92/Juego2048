@@ -48,8 +48,13 @@ public class Consola {
 		System.out.println(tablero.mostrar());
 		System.out.println("Game Over");
 		System.out.println("Puntaje: " + tablero.puntajeActual());
-		tablero.checkPuntaje();
-		System.out.println("\nDatos Guardados. Good luck!");
+		if(tablero.nuevaPuntuacionMaxima())
+		{
+			System.out.println("Ingrese su nombre");
+			tablero.grabarPuntaje(Entrada.readLine());
+			System.out.println("\nDatos Guardados. Good luck!");
+		}
+		
 
 	}
 

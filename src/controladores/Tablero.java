@@ -226,11 +226,17 @@ public class Tablero {
 	public Integer puntajeActual() {
 		return this.puntaje.puntajeActual();
 	}
-
-	public void checkPuntaje() {
-		this.puntaje.checkPuntaje();
+	
+	public boolean nuevaPuntuacionMaxima()
+	{
+		return puntaje.puntajeMaximo().puntajeActual() < puntaje.puntajeActual();
 	}
-
+	
+	public void grabarPuntaje(String nombre)
+	{
+		puntaje.grabarPuntaje(nombre);
+	}
+	
 	public boolean hayMovimientosDisponibles() {
 		if (grilla.cantidadCasilleros() == grilla.casillerosOcupados()) {
 			Tablero t = new Tablero(this);
