@@ -26,11 +26,17 @@ public class Grilla {
 	private void inicializarCasilleros() {
 		for (int i = 0; i < casilleros.length; i++)
 			for (int j = 0; j < casilleros[i].length; j++)
-				casilleros[i][j] = new Casillero(0);
+				casilleros[i][j] = new Casillero();
 	}
 
 	public boolean casilleroOcupado(int fila, int columna) {
-		if (casilleros[fila][columna].valor() != 0)
+		if (!casilleros[fila][columna].estaVacio())
+			return true;
+		return false;
+	}
+	
+	public boolean casilleroVacio(int fila, int columna) {
+		if (casilleros[fila][columna].estaVacio())
 			return true;
 		return false;
 	}
@@ -111,5 +117,18 @@ public class Grilla {
 	private int randomCelda() {
 		Random rnd = new Random();
 		return rnd.nextInt(this.cantidadCasilleros());
+	}
+	
+	public boolean existeCasillero2048()
+	{
+		for(int fila = 0; fila < cantFilas(); fila++)
+		{
+			for(int columna = 0; columna < cantColumnas(); columna++)
+			{
+				if(this.getCasillero(fila, columna).valor() == 2048)
+					return true;
+			}
+		}
+		return false;
 	}
 }

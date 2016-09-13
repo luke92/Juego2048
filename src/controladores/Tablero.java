@@ -12,7 +12,12 @@ public class Tablero {
 		puntaje = new Puntaje();
 
 	}
-
+	
+	public Grilla getGrilla()
+	{
+		return grilla;
+	}
+	
 	private Tablero(Tablero aux) {
 		this.grilla = new Grilla(aux.grilla);
 		puntaje = new Puntaje();
@@ -237,15 +242,24 @@ public class Tablero {
 		puntaje.grabarPuntaje(nombre);
 	}
 	
-	public boolean hayMovimientosDisponibles() {
-		if (grilla.cantidadCasilleros() == grilla.casillerosOcupados()) {
+	public boolean hayMovimientosDisponibles() 
+	{
+		if(grilla.existeCasillero2048()) return false;
+		if (grilla.cantidadCasilleros() == grilla.casillerosOcupados()) 
+		{
 			Tablero t = new Tablero(this);
 			if (!t.moverAbajo() && !t.moverArriba() && !t.moverDerecha() && !t.moverIzquierda())
 				return false;
 			else
 				return true;
-		} else
+		} 
+		else
 			return true;
+	}
+	
+	public boolean victoria()
+	{
+		return grilla.existeCasillero2048();
 	}
 
 }

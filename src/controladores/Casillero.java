@@ -10,6 +10,11 @@ public class Casillero
 		numero = n;
 	}
 	
+	public Casillero()
+	{
+		numero = 0;
+	}
+	
 	private void invariante(Integer n)
 	{
 		if(n == null) lanzarExcepcion("No puede ser null el numero");
@@ -40,4 +45,9 @@ public class Casillero
 	public boolean equals(Casillero c2){
 		return this.valor() == c2.valor();
 	}
-}
+	
+	public boolean estaVacio()
+	{
+		return numero == 0;
+	}
+	}

@@ -13,7 +13,7 @@ public class AccesoDatos {
             for(int i=0; i < cadenas.size(); i++)
             {
             	out.write(cadenas.get(i));
-            	if(i < cadenas.size()-1) out.write(";");
+            	if(i < cadenas.size()-1) out.write(":");
             }
 			out.close();
 		} 
@@ -43,7 +43,7 @@ public class AccesoDatos {
 			String[] linea;
 			while(entrada.ready())
 			{
-				linea = entrada.readLine().split(";");
+				linea = entrada.readLine().split(":");
 				cadenas.addAll(Arrays.asList(linea));
 			}
 			entrada.close();
