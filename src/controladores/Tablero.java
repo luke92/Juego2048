@@ -1,16 +1,18 @@
 package controladores;
 
 import modelos.Puntaje;
+import modelos.PuntajesMaximos;
 
 public class Tablero {
 	private Grilla grilla;
 	private Puntaje puntaje;
 	private boolean bandera;
-
-	public Tablero(int filas, int columnas) {
+	private PuntajesMaximos puntajesMaximos;
+	public Tablero(int filas, int columnas) 
+	{
 		grilla = new Grilla(filas, columnas);
 		puntaje = new Puntaje();
-
+		puntajesMaximos = new PuntajesMaximos();
 	}
 	
 	public Grilla getGrilla()
@@ -225,17 +227,18 @@ public class Tablero {
 	}
 
 	public Integer puntajeActual() {
-		return this.puntaje.puntajeActual();
+		return this.puntaje.getPuntos();
 	}
 	
 	public boolean nuevaPuntuacionMaxima()
 	{
-		return puntaje.puntajeMaximo().puntajeActual() < puntaje.puntajeActual();
+		return puntajesMaximos.nuevoPuntajeAlto(puntaje);
 	}
 	
 	public void grabarPuntaje(String nombre)
 	{
-		puntaje.grabarPuntaje(nombre);
+		puntaje.setNombre(nombre);
+		puntajesMaximos.grabarPuntajeNuevo(puntaje);
 	}
 	
 	public boolean hayMovimientosDisponibles() 

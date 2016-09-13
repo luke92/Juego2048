@@ -1,59 +1,40 @@
 package modelos;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Puntaje {
-	private Integer puntaje;
+	private Integer puntos;
 	private String nombre;
-	private Integer mejorPuntaje;
-	private String nombreArchivo;
 	public Puntaje() {
-		puntaje = 0;
-		nombre = "";
-		mejorPuntaje = 0;
-		nombreArchivo = "puntuacionMasAlta.txt";
+		puntos = 0;
+		nombre = "jugador";
 	}
-
+	
+	public Puntaje(String nombre, Integer puntos)
+	{
+		this.puntos = puntos;
+		this.nombre = nombre;
+	}
+	
 	public Puntaje(Integer puntos) {
-		this.puntaje = puntos;
+		this.puntos = puntos;
 	}
 
 	public void acumularPuntos(int puntosGanados) {
-		this.puntaje += puntosGanados;
-	}
-
-	public Integer puntajeActual() {
-		return this.puntaje;
+		this.puntos += puntosGanados;
 	}
 	
-	public void grabarPuntaje(String nombre)
+	public String getNombre()
 	{
-		ArrayList<String> puntuacion = new ArrayList<String>();
-		puntuacion.add(nombre);
-		puntuacion.add(String.valueOf(puntaje));
-		AccesoDatos.grabar(nombreArchivo, puntuacion);
+		return nombre;
 	}
 	
-	public Puntaje puntajeMaximo()
+	public Integer getPuntos()
 	{
-		ArrayList<String> puntuaciones = AccesoDatos.leer(nombreArchivo);
-		Puntaje puntuacionMaxima = new Puntaje();
-		if(!puntuaciones.isEmpty())
-		{
-			puntuacionMaxima.nombre = puntuaciones.get(0);
-			puntuacionMaxima.puntaje = Integer.parseInt(puntuaciones.get(1));
-		}
-		else
-		{
-			puntuacionMaxima.nombre = "admin";
-			puntuacionMaxima.puntaje = 0;
-		}
-		return puntuacionMaxima;
+		return puntos;
+	}
+	
+	public void setNombre(String nombre)
+	{
+		this.nombre = nombre;
 	}
 
 }

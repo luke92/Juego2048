@@ -1,6 +1,7 @@
 package vistas;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -9,6 +10,7 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -39,7 +41,8 @@ public class FormTablero extends JPanel
 		        }
 		        else
 		        {
-		        	switch (e.getKeyCode()) {
+		        	switch (e.getKeyCode()) 
+		        	{
 		            	case KeyEvent.VK_LEFT:
 		            		izquierda();
 		            		break;
@@ -51,6 +54,9 @@ public class FormTablero extends JPanel
 		            		break;
 		            	case KeyEvent.VK_UP:
 		            		arriba();
+		            		break;
+		            	case KeyEvent.VK_P:
+		            		verPuntajesMaximos();
 		            		break;
 		        	}
 		        }
@@ -127,6 +133,11 @@ public class FormTablero extends JPanel
 		grillaVisual.actualizar(tablero.getGrilla());
 	}
 	
+	private void verPuntajesMaximos()
+	{
+		new FormPuntajesMaximos();
+	}
+	
 	@Override
 	  public void paint(Graphics g) {
 	    super.paint(g);
@@ -164,6 +175,7 @@ public class FormTablero extends JPanel
 
 	    g.setFont(new Font(FUENTE_NOMBRE, Font.PLAIN, 18));
 	    g.drawString("Puntaje: " + tablero.puntajeActual(), 200, 365);
+	    g.drawString("Ver Puntajes (P)", 10, 365);
 
 	  }
 
