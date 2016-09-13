@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import javax.swing.JDialog;
+
+import modelos.Puntaje;
 import modelos.PuntajesMaximos;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -31,18 +33,17 @@ public class FormPuntajesMaximos extends JDialog {
 	    this.setVisible(true);
 	    
 	    PuntajesMaximos puntajes = new PuntajesMaximos();
-	    int x= 33;
-	    int y= 53;
-	    BufferedReader l = new BufferedReader (new FileReader ("puntuacionesMaximas.txt"));
-	    int i = 0;
-	    while (i < puntajes.tamanio()) 
+	    
+	    int y = 40;
+	    for(Puntaje p : puntajes.obtenerTodos())
 	    {
-			JLabel nuevoLbl = new JLabel( l.readLine() );
-		    nuevoLbl.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		    nuevoLbl.setBounds(x, y, 113, 22);
+	    	JLabel nuevoLbl = new JLabel();
+	    	nuevoLbl.setText("Jugador :" + p.getNombre() + "  Puntos: " + p.getPuntos());
+		    nuevoLbl.setFont(new Font("Arial", Font.PLAIN, 14));
+		    nuevoLbl.setBounds(33, y+=20, 200, 22);
 		    getContentPane().add(nuevoLbl);
-		    i++;
 	    }
+	    
 	}
 
 //	private void crearLbl(int x, int y, PuntajesMaximos puntajes,  int i) {

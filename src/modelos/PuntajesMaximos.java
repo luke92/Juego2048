@@ -25,7 +25,7 @@ public class PuntajesMaximos
 		return false;
 	}
 	
-	public ArrayList<Puntaje> leerArchivo()
+	private ArrayList<Puntaje> leerArchivo()
 	{
 		ArrayList<Puntaje> puntajes = new ArrayList<Puntaje>();
 		ArrayList<ArrayList<String>> registros = AccesoDatos.leerTodo(nombreArchivo);
@@ -89,6 +89,11 @@ public class PuntajesMaximos
 	public Puntaje posicion(int pos)
 	{
 		return puntajes.get(pos);
+	}
+	
+	public ArrayList<Puntaje> obtenerTodos()
+	{
+		return puntajes;
 	}
 	
 }
