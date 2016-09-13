@@ -16,10 +16,10 @@ import controladores.Tablero;
 
 public class FormTablero extends JPanel 
 {
-	private static final Color BG_COLOR = new Color(0xbbada0);
-	private static final String FONT_NAME = "Arial";
-	private static final int TILE_SIZE = 64;
-	private static final int TILES_MARGIN = 16;
+	private static final Color FONDO_COLOR = new Color(0xbbada0);
+	private static final String FUENTE_NOMBRE = "Arial";
+	private static final int CASILLERO_TAMANIO = 64;
+	private static final int CASILLERO_MARGEN = 16;
 	private Tablero tablero;
 	private FormGrilla grillaVisual;
 	public FormTablero()
@@ -130,7 +130,7 @@ public class FormTablero extends JPanel
 	@Override
 	  public void paint(Graphics g) {
 	    super.paint(g);
-	    g.setColor(BG_COLOR);
+	    g.setColor(FONDO_COLOR);
 	    g.fillRect(0, 0, this.getSize().width, this.getSize().height);
 	    for (int fila = 0; fila < 4; fila++) {
 	      for (int columna = 0; columna < 4; columna++) {
@@ -143,31 +143,31 @@ public class FormTablero extends JPanel
 	    Graphics2D g = ((Graphics2D) g2);
 	    g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 	    g.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
-	    int value = casillero.valor();
-	    int xOffset = offsetCoors(x);
-	    int yOffset = offsetCoors(y);
+	    int valor = casillero.valor();
+	    int desplazamientoColumna = desplazamientoCoordenadas(x);
+	    int desplazamientoFila = desplazamientoCoordenadas(y);
 	    g.setColor(casillero.getBackground());
-	    g.fillRoundRect(xOffset, yOffset, TILE_SIZE, TILE_SIZE, 14, 14);
+	    g.fillRoundRect(desplazamientoColumna, desplazamientoFila, CASILLERO_TAMANIO, CASILLERO_TAMANIO, 14, 14);
 	    g.setColor(casillero.getForeground());
-	    final int size = value < 100 ? 36 : value < 1000 ? 32 : 24;
-	    final Font font = new Font(FONT_NAME, Font.BOLD, size);
-	    g.setFont(font);
+	    final int tamanio = valor < 100 ? 36 : valor < 1000 ? 32 : 24;
+	    final Font fuente = new Font(FUENTE_NOMBRE, Font.BOLD, tamanio);
+	    g.setFont(fuente);
 
-	    String s = String.valueOf(value);
-	    final FontMetrics fm = getFontMetrics(font);
+	    String s = String.valueOf(valor);
+	    final FontMetrics fm = getFontMetrics(fuente);
 
 	    final int w = fm.stringWidth(s);
 	    final int h = -(int) fm.getLineMetrics(s, g).getBaselineOffsets()[2];
 
-	    if (value != 0)
-	      g.drawString(s, xOffset + (TILE_SIZE - w) / 2, yOffset + TILE_SIZE - (TILE_SIZE - h) / 2 - 2);
+	    if (valor != 0)
+	      g.drawString(s, desplazamientoColumna + (CASILLERO_TAMANIO - w) / 2, desplazamientoFila + CASILLERO_TAMANIO - (CASILLERO_TAMANIO - h) / 2 - 2);
 
-	    g.setFont(new Font(FONT_NAME, Font.PLAIN, 18));
+	    g.setFont(new Font(FUENTE_NOMBRE, Font.PLAIN, 18));
 	    g.drawString("Puntaje: " + tablero.puntajeActual(), 200, 365);
 
 	  }
 
-	  private static int offsetCoors(int arg) {
-	    return arg * (TILES_MARGIN + TILE_SIZE) + TILES_MARGIN;
+	  private static int desplazamientoCoordenadas(int arg) {
+	    return arg * (CASILLERO_MARGEN + CASILLERO_TAMANIO) + CASILLERO_MARGEN;
 	  }
 }
