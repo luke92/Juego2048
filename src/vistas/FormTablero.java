@@ -53,7 +53,6 @@ public class FormTablero extends JPanel
 		            		arriba();
 		            		break;
 		        	}
-		        	
 		        }
 		        repaint();
 		    }

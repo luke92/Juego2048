@@ -60,7 +60,6 @@ public class Tablero {
 				if (grilla.casilleroOcupado(fila, colSiguiente)) {
 					if (grilla.casillerosIguales(fila, colActual, fila, colSiguiente)) {
 						int valor = grilla.getCasillero(fila, colActual).valor() * 2;
-						System.out.println(valor);
 						puntaje.acumularPuntos(valor);
 						grilla.asignarNumero(fila, colActual, valor);
 						grilla.removerNumero(fila, colSiguiente);
@@ -110,7 +109,6 @@ public class Tablero {
 				if (grilla.casilleroOcupado(fila, colSiguiente)) {
 					if (grilla.casillerosIguales(fila, colActual, fila, colSiguiente)) {
 						int valor = grilla.getCasillero(fila, colActual).valor() * 2;
-						System.out.println(valor);
 						puntaje.acumularPuntos(valor);
 						grilla.asignarNumero(fila, colActual, valor);
 						grilla.removerNumero(fila, colSiguiente);
@@ -158,7 +156,6 @@ public class Tablero {
 			if (grilla.casilleroOcupado(filaSiguiente, columna)) {
 				if (grilla.casillerosIguales(filaActual, columna, filaSiguiente, columna)) {
 					int valor = grilla.getCasillero(filaActual, columna).valor() * 2;
-					System.out.println(valor);
 					puntaje.acumularPuntos(valor);
 					grilla.asignarNumero(filaActual, columna, valor);
 					grilla.removerNumero(filaSiguiente, columna);
@@ -206,7 +203,6 @@ public class Tablero {
 				if (grilla.casilleroOcupado(filaSiguiente, columna)) {
 					if (grilla.casillerosIguales(filaActual, columna, filaSiguiente, columna)) {
 						int valor = grilla.getCasillero(filaActual, columna).valor() * 2;
-						System.out.println(valor);
 						puntaje.acumularPuntos(valor);
 						grilla.asignarNumero(filaActual, columna, valor);
 						grilla.removerNumero(filaSiguiente, columna);
