@@ -9,12 +9,12 @@ public class AccesoDatos {
 	{
 		try 
 		{
-			BufferedWriter out = new BufferedWriter(new FileWriter(nombreArchivo, true));
-            for(String x : cadenas)
+			BufferedWriter out = new BufferedWriter(new FileWriter(nombreArchivo));
+            for(int i=0; i < cadenas.size(); i++)
             {
-            	out.write(x + ";");
+            	out.write(cadenas.get(i));
+            	if(i < cadenas.size()-1) out.write(";");
             }
-            out.newLine();
 			out.close();
 		} 
 		catch (IOException e) 
@@ -24,9 +24,17 @@ public class AccesoDatos {
 		}
 	}
 	
+	private static boolean existeArchivo(String nombreArchivo)
+	{
+		File f = new File( nombreArchivo );
+		return f.exists();
+	}
+	
 	public static ArrayList<String> leer(String nombreArchivo)
 	{
+		
         ArrayList<String> cadenas = new ArrayList<String>();
+        if(!existeArchivo(nombreArchivo)) return cadenas;
         File f = new File( nombreArchivo );
 		BufferedReader entrada;
 		try 
@@ -42,7 +50,7 @@ public class AccesoDatos {
 		}
 		catch (IOException e) 
 		{
-			return null;
+			e.printStackTrace();
 		}
 		return cadenas;
 	}	

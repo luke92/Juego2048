@@ -52,7 +52,7 @@ public class Consola {
 		{
 			System.out.println("Ingrese su nombre");
 			tablero.grabarPuntaje(Entrada.readLine());
-			System.out.println("\nDatos Guardados. Good luck!");
+			System.out.println("Datos Guardados. Good luck!");
 		}
 		
 
