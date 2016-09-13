@@ -1,7 +1,6 @@
 package vistas;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -9,8 +8,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -18,6 +17,10 @@ import controladores.Tablero;
 
 public class FormTablero extends JPanel 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final Color FONDO_COLOR = new Color(0xbbada0);
 	private static final String FUENTE_NOMBRE = "Arial";
 	private static final int CASILLERO_TAMANIO = 64;
@@ -56,7 +59,11 @@ public class FormTablero extends JPanel
 		            		arriba();
 		            		break;
 		            	case KeyEvent.VK_P:
-		            		verPuntajesMaximos();
+						try {
+							verPuntajesMaximos();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
 		            		break;
 		        	}
 		        }
@@ -133,7 +140,7 @@ public class FormTablero extends JPanel
 		grillaVisual.actualizar(tablero.getGrilla());
 	}
 	
-	private void verPuntajesMaximos()
+	private void verPuntajesMaximos() throws IOException
 	{
 		new FormPuntajesMaximos();
 	}
