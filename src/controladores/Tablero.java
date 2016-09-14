@@ -237,6 +237,7 @@ public class Tablero {
 	
 	public void grabarPuntaje(String nombre)
 	{
+		if(nombre == null) return;
 		puntaje.setNombre(nombre);
 		puntajesMaximos.grabarPuntajeNuevo(puntaje);
 	}

@@ -38,7 +38,7 @@ public class FormPuntajesMaximos extends JDialog {
 	    	JLabel nuevoLbl = new JLabel();
 	    	nuevoLbl.setText("Jugador :" + p.getNombre() + "  Puntos: " + p.getPuntos());
 		    nuevoLbl.setFont(new Font("Arial", Font.PLAIN, 14));
-		    nuevoLbl.setBounds(33, y+=20, 200, 22);
+		    nuevoLbl.setBounds(33, y+=20, 340, 22);
 		    getContentPane().add(nuevoLbl);
 	    }
 	    

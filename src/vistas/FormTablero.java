@@ -123,9 +123,10 @@ public class FormTablero extends JPanel
 	{
 		if(tablero.nuevaPuntuacionMaxima())
 		{
-			String nombre= JOptionPane.showInputDialog("Sos el mas capo! +10. Como te llamas?");
+			String nombre= escribirNombre();
 			tablero.grabarPuntaje(nombre);
 			JOptionPane.showMessageDialog(null,"Ya guarde tus puntos, espero que no te derroquen");
+			
 		}
 		else
 		{
@@ -133,6 +134,17 @@ public class FormTablero extends JPanel
 				JOptionPane.showMessageDialog(null,"Ganaste Papa!");
 			else JOptionPane.showMessageDialog(null,"Game Over, mejor para la proxima lince");
 		}
+		reiniciarJuego();
+	}
+	
+	private String escribirNombre()
+	{
+		String nombre= JOptionPane.showInputDialog("Sos el mas capo! +10. Como te llamas?");
+		if(nombre == null)
+		{
+			nombre = escribirNombre();
+		}
+		return nombre;
 	}
 	
 	private void actualizarTablero()
