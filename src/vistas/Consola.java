@@ -10,6 +10,8 @@ public class Consola {
 
 		String opcion;
 		String opciones;
+		
+		
 
 		while (tablero.hayMovimientosDisponibles()) {
 			opciones = "4 Izquierda 6 Derecha 8 Arriba 2 Abajo\nPuntos " + tablero.puntajeActual();

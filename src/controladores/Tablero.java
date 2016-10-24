@@ -28,9 +28,9 @@ public class Tablero {
 	public boolean moverIzquierda() {
 		bandera = false;
 		for (int fila = 0; fila < grilla.cantFilas(); fila++) {
-			moverCasillerosIzq(fila, 0, 1);
-			combinarCasillerosIzq(fila, 0, 1);
-			moverCasillerosIzq(fila, 0, 1);
+			moverCasillerosIzq		(fila, 0, 1);
+			combinarCasillerosIzq	(fila, 0, 1);
+			moverCasillerosIzq		(fila, 0, 1);
 		}
 		return bandera;
 	}
@@ -41,7 +41,8 @@ public class Tablero {
 		} else {
 			if (!grilla.casilleroOcupado(fila, colActual)) {
 				if (grilla.casilleroOcupado(fila, colSiguiente)) {
-					grilla.asignarNumero(fila, colActual, grilla.getCasillero(fila, colSiguiente).valor());
+					int valor = grilla.getCasillero(fila, colSiguiente).valor();
+					grilla.asignarNumero(fila, colActual, valor);
 					grilla.asignarNumero(fila, colSiguiente, 0);
 					bandera = true;
 					moverCasillerosIzq(fila, colActual + 1, colSiguiente + 1);
@@ -54,19 +55,17 @@ public class Tablero {
 		}
 	}
 
-	private void combinarCasillerosIzq(int fila, int colActual, int colSiguiente) {
+	void combinarCasillerosIzq(int fila, int colActual, int colSiguiente) {
 		if (colSiguiente >= grilla.cantColumnas()) {
 			return;
 		} else {
-			if (grilla.casilleroOcupado(fila, colActual)) {
-				if (grilla.casilleroOcupado(fila, colSiguiente)) {
-					if (grilla.casillerosIguales(fila, colActual, fila, colSiguiente)) {
-						int valor = grilla.getCasillero(fila, colActual).valor() * 2;
-						puntaje.acumularPuntos(valor);
-						grilla.asignarNumero(fila, colActual, valor);
-						grilla.removerNumero(fila, colSiguiente);
-						bandera = true;
-					}
+			if (grilla.casilleroOcupado(fila, colActual) && grilla.casilleroOcupado(fila, colSiguiente)) {
+				if (grilla.casillerosIguales(fila, colActual, fila, colSiguiente)) {
+					int valor = grilla.getCasillero(fila, colActual).valor() * 2;
+					puntaje.acumularPuntos(valor);
+					grilla.asignarNumero(fila, colActual, valor);
+					grilla.removerNumero(fila, colSiguiente);
+					bandera = true;
 				}
 			}
 			combinarCasillerosIzq(fila, colActual + 1, colSiguiente + 1);

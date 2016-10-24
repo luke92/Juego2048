@@ -89,8 +89,10 @@ public class Grilla {
 		return cadena;
 	}
 
-	public boolean casillerosIguales(int filaCasillero1,int columnaCasillero1,int filaCasillero2,int columnaCasillero2) {
-		return getCasillero(filaCasillero1, columnaCasillero1).equals(getCasillero(filaCasillero2, columnaCasillero2));
+	public boolean casillerosIguales(int filaCasillero1, int columnaCasillero1, int filaCasillero2, int columnaCasillero2) {
+		Casillero casillero1= getCasillero(filaCasillero1, columnaCasillero1);
+		Casillero casillero2= getCasillero(filaCasillero2, columnaCasillero2);
+		return casillero1.equals(casillero2);
 	}
 
 	public void agregarNumeroAleatorio() 

@@ -42,8 +42,21 @@ public class Casillero
 		else return " " + numero + " ";
 	}
 	
-	public boolean equals(Casillero c2){
-		return this.valor() == c2.valor();
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Casillero other = (Casillero) obj;
+		if (numero == null) {
+			if (other.numero != null)
+				return false;
+		} else if (!numero.equals(other.numero))
+			return false;
+		return true;
 	}
 	
 	public boolean estaVacio()
